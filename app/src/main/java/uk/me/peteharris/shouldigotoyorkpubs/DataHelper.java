@@ -27,7 +27,7 @@ public class DataHelper {
             Reader isr = new BufferedReader(new InputStreamReader(context.getAssets().open("badTimes.json")));
             Gson gson = new GsonBuilder()
 //                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                    .setDateFormat("yyyy-mm-dd")
+                    .setDateFormat("yyyy-M-d")
                     .create();
             Type type = new TypeToken<ArrayList<BadTime>>() {
             }.getType();
