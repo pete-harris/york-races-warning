@@ -19,8 +19,14 @@
   },
   {
     "label": "September Meeting",
-    "start": "2015-09-07",
+    "start": "2015-09-06",
     "end": "2015-09-06",
+    "type": "RACES"
+  },
+  {
+    "label": "October Meeting",
+    "start": "2015-10-09",
+    "end": "2015-10-10",
     "type": "RACES"
   }
 ]

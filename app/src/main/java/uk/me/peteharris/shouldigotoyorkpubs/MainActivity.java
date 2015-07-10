@@ -1,6 +1,7 @@
 package uk.me.peteharris.shouldigotoyorkpubs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<BadTime> badTimes;
     private ArrayList<Pub> pubs;
 
+    Pub randomPub = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,13 +72,43 @@ public class MainActivity extends AppCompatActivity {
         if(null != current) {
             shouldIGoIn.setImageResource(R.drawable.raceday);
             text = getString(R.string.raceday, current.getLabel());
+            randomPub = null;
         } else if (DataHelper.isWeekend()) {
             shouldIGoIn.setImageResource(R.drawable.weekend);
             text = getString(R.string.weekend);
+            randomPub = null;
         } else {
             shouldIGoIn.setImageResource(R.drawable.haveapint);
-            text = getString(R.string.haveapint, pubs.get(randomIndex).getName());
+            randomPub = pubs.get(randomIndex);
+            text = getString(R.string.haveapint, randomPub.getName());
         }
         textView.setText(text);
+        invalidateOptionsMenu();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        menu.findItem(R.id.action_directions).setVisible(null != randomPub);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_raceday: {
+                Intent intent = new Intent(this, RaceDays.class);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.action_directions: {
+                Intent intent = new Intent(Intent.ACTION_VIEW, randomPub.getAddressUri());
+                startActivity(intent);
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
