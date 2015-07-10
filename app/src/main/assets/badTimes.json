@@ -1,24 +1,24 @@
 [
   {
-    "label": "Race Day: John Smith's Cup Meeting",
+    "label": "John Smith's Cup Meeting",
     "start": "2015-07-10",
     "end": "2015-07-12",
     "type": "RACES"
   },
   {
-    "label": "Race Day: with Tom Jones",
+    "label": "Tom Jones",
     "start": "2015-07-24",
     "end": "2015-07-25",
     "type": "RACES"
   },
   {
-    "label": "Race Day: Ebor Festival",
+    "label": "Ebor Festival",
     "start": "2015-08-19",
     "end": "2015-08-22",
     "type": "RACES"
   },
   {
-    "label": "Race Day: September Meeting",
+    "label": "September Meeting",
     "start": "2015-09-07",
     "end": "2015-09-06",
     "type": "RACES"

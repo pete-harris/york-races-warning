@@ -34,22 +34,24 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import uk.me.peteharris.shouldigotoyorkpubs.model.BadTime;
+import uk.me.peteharris.shouldigotoyorkpubs.model.Pub;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.badList)
-    RecyclerView mRecyclerView;
     @Bind(R.id.shouldIGoIn)
     ImageView shouldIGoIn;
+    @Bind(R.id.text)
+    TextView textView;
 
     private ArrayList<BadTime> badTimes;
-    private LinearLayoutManager mLayoutManager;
-    private BadTimeAdapter mAdapter;
+    private ArrayList<Pub> pubs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,80 +60,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
         badTimes = DataHelper.loadData(this);
+        pubs = DataHelper.loadPubList(this);
+        int randomIndex = new Random().nextInt(pubs.size());
 
-        mAdapter = new BadTimeAdapter(badTimes);
-        mRecyclerView.setAdapter(mAdapter);
+        String text;
 
         BadTime current = DataHelper.isItBad(badTimes);
         if(null != current) {
             shouldIGoIn.setImageResource(R.drawable.raceday);
+            text = getString(R.string.raceday, current.getLabel());
         } else if (DataHelper.isWeekend()) {
             shouldIGoIn.setImageResource(R.drawable.weekend);
+            text = getString(R.string.weekend);
         } else {
             shouldIGoIn.setImageResource(R.drawable.haveapint);
+            text = getString(R.string.haveapint, pubs.get(randomIndex).getName());
         }
-
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        @Bind(android.R.id.text1) TextView text1;
-        @Bind(android.R.id.text2) TextView text2;
-        public ViewHolder(View v) {
-            super(v);
-            ButterKnife.bind(this, v);
-        }
-    }
-
-    public class BadTimeAdapter extends RecyclerView.Adapter<ViewHolder> {
-        private ArrayList<BadTime> mBadTimes;
-        java.text.DateFormat df = DateFormat.getDateFormat(MainActivity.this);
-
-        // Provide a reference to the views for each data item
-        // Complex data items may need more than one view per item, and
-        // you provide access to all the views for a data item in a view holder
-
-
-        // Provide a suitable constructor (depends on the kind of dataset)
-        public BadTimeAdapter(ArrayList<BadTime> badTimes) {
-            mBadTimes = badTimes;
-        }
-
-        // Create new views (invoked by the layout manager)
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                       int viewType) {
-            // create a new view
-            View v = LayoutInflater.from(parent.getContext())
-                    .inflate(android.R.layout.simple_list_item_2, parent, false);
-            // set the view's size, margins, paddings and layout parameters
-            ViewHolder vh = new ViewHolder(v);
-            return vh;
-        }
-
-        // Replace the contents of a view (invoked by the layout manager)
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            // - get element from your dataset at this position
-            final BadTime bt = mBadTimes.get(position);
-            // - replace the contents of the view with that element
-            holder.text1.setText(bt.getLabel());
-            holder.text2.setText(bt.getDateString(df));
-        }
-
-        // Return the size of your dataset (invoked by the layout manager)
-        @Override
-        public int getItemCount() {
-            return mBadTimes.size();
-        }
+        textView.setText(text);
     }
 }

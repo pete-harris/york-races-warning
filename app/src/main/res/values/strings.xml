@@ -5,4 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="title_activity_race_days">RaceDays</string>
+    <string name="raceday">Looks like it\'s a raceday - %s.  I\'d avoid town if I were you</string>
+    <string name="weekend">It\'s a weekend.  It might be OK, but I\'d avoid Micklegate if I were you</string>
+    <string name="haveapint">Definitely have a pint.  Why not try %s</string>
 </resources>

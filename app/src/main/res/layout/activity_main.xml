@@ -3,18 +3,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView android:text="These are the times to avoid York" android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:id="@+id/shouldIGoIn"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/badList"
-        android:scrollbars="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+<TextView
+    android:padding="16dp"
+    android:gravity="center"
+    android:id="@+id/text"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
 </LinearLayout>

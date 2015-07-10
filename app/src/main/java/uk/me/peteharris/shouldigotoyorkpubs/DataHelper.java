@@ -16,6 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import uk.me.peteharris.shouldigotoyorkpubs.model.BadTime;
+import uk.me.peteharris.shouldigotoyorkpubs.model.Pub;
 
 /**
  * Created by pharris on 10/07/15.
@@ -30,6 +31,21 @@ public class DataHelper {
                     .setDateFormat("yyyy-M-d")
                     .create();
             Type type = new TypeToken<ArrayList<BadTime>>() {
+            }.getType();
+            return gson.fromJson(isr, type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+    
+    public static ArrayList<Pub> loadPubList(Context context) {
+        try {
+            Reader isr = new BufferedReader(new InputStreamReader(context.getAssets().open("publist.json")));
+            Gson gson = new GsonBuilder()
+                    .create();
+            Type type = new TypeToken<ArrayList<Pub>>() {
             }.getType();
             return gson.fromJson(isr, type);
         } catch (IOException e) {
