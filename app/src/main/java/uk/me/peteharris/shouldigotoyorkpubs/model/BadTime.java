@@ -25,6 +25,6 @@ public class BadTime {
 
     public boolean isItNow(Date d){
         return d.after(start)
-                && d.getTime() + 1000 * 60 * 60 * 24 < end.getTime();
+                && d.getTime() < end.getTime() + 1000 * 60 * 60 * 24;
     }
 }
