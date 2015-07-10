@@ -1,4 +1,4 @@
-package uk.me.peteharris.shouldigotoyorkpubs;
+package uk.me.peteharris.pintinyork;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

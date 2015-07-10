@@ -1,9 +1,6 @@
-package uk.me.peteharris.shouldigotoyorkpubs.model;
+package uk.me.peteharris.pintinyork.model;
 
 import android.net.Uri;
-
-import java.text.DateFormat;
-import java.util.Date;
 
 import lombok.Getter;
 

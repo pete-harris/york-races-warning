@@ -1,14 +1,11 @@
-package uk.me.peteharris.shouldigotoyorkpubs;
+package uk.me.peteharris.pintinyork;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -17,7 +14,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import uk.me.peteharris.shouldigotoyorkpubs.model.BadTime;
+import uk.me.peteharris.pintinyork.model.BadTime;
 
 
 public class RaceDays extends AppCompatActivity {

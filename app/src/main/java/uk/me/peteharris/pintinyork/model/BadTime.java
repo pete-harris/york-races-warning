@@ -1,8 +1,6 @@
-package uk.me.peteharris.shouldigotoyorkpubs.model;
+package uk.me.peteharris.pintinyork.model;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import lombok.Getter;

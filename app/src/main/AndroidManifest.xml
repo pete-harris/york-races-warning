@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uk.me.peteharris.shouldigotoyorkpubs" >
+    package="uk.me.peteharris.pintinyork" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="uk.me.peteharris.pintinyork.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".GoOutWidget" >
+        <receiver android:name="uk.me.peteharris.pintinyork.GoOutWidget" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -28,7 +28,7 @@
         </receiver>
 
         <activity
-            android:name=".RaceDays"
+            android:name="uk.me.peteharris.pintinyork.RaceDays"
             android:label="@string/title_activity_race_days" >
         </activity>
     </application>
