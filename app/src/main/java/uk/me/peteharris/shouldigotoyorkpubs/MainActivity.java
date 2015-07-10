@@ -66,47 +66,20 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        loadData();
-    }
+        badTimes = DataHelper.loadData(this);
 
-    private void loadData() {
-        try {
-            Reader isr = new BufferedReader(new InputStreamReader(getAssets().open("badTimes.json")));
-            Gson gson = new GsonBuilder()
-//                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                    .setDateFormat("yyyy-mm-dd")
-                    .create();
-            Type type = new TypeToken<ArrayList<BadTime>>() {}.getType();
-            badTimes = gson.fromJson(isr, type);
+        mAdapter = new BadTimeAdapter(badTimes);
+        mRecyclerView.setAdapter(mAdapter);
 
-            mAdapter = new BadTimeAdapter(badTimes);
-            mRecyclerView.setAdapter(mAdapter);
-
-            BadTime current = isItBad(badTimes);
-            if(null != current) {
-                shouldIGoIn.setImageResource(R.drawable.raceday);
-            } else {
-                Calendar now = Calendar.getInstance();
-                if(now.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY
-                    || now.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY){
-                    shouldIGoIn.setImageResource(R.drawable.weekend);
-                } else {
-                    shouldIGoIn.setImageResource(R.drawable.haveapint);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        BadTime current = DataHelper.isItBad(badTimes);
+        if(null != current) {
+            shouldIGoIn.setImageResource(R.drawable.raceday);
+        } else if (DataHelper.isWeekend()) {
+            shouldIGoIn.setImageResource(R.drawable.weekend);
+        } else {
+            shouldIGoIn.setImageResource(R.drawable.haveapint);
         }
-    }
 
-    private BadTime isItBad(ArrayList<BadTime> badTimes) {
-        Date now = new Date();
-        for(BadTime bt: badTimes){
-            if(bt.isItNow(now)){
-                return bt;
-            }
-        }
-        return null;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
