@@ -3,11 +3,6 @@
     android:padding="@dimen/widget_margin" >
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="centerInside"/>
-    <ImageView
         android:padding="8dp"
         android:id="@+id/widget_state"
         android:layout_width="match_parent"

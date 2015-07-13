@@ -45,13 +45,12 @@ public class GoOutWidget extends AppWidgetProvider {
         int image;
         int color;
         if(null != DataHelper.isItBad(data)){
-            image = R.drawable.raceday;
-            color = R.color.bad;
+            image = R.drawable.widget_raceday;
         } else if(DataHelper.isWeekend()){
-            image = R.drawable.weekend;
+            image = R.drawable.widget_weekend;
             color = R.color.careful;
         } else {
-            image = R.drawable.haveapint;
+            image = R.drawable.widget_haveapint;
             color = R.color.go;
         }
 //        CharSequence widgetText = context.getString(R.string.appwidget_text);
