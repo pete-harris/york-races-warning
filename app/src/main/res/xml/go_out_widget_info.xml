@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:minWidth="40dp" android:minHeight="40dp" android:updatePeriodMillis="25200000"
-    android:previewImage="@drawable/widget_haveapint"
+    android:previewImage="@drawable/raceday"
     android:initialLayout="@layout/go_out_widget" android:resizeMode="none"
     android:widgetCategory="home_screen"
     android:initialKeyguardLayout="@layout/go_out_widget"></appwidget-provider>
