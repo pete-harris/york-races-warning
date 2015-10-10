@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         BadTime current = DataHelper.isItBad(badTimes);
         if(null != current) {
             shouldIGoIn.setImageResource(R.drawable.raceday);
-            text = getString(R.string.raceday, current.getLabel());
+            text = getString(R.string.raceday, current.label);
             randomPub = null;
         } else if (DataHelper.isWeekend()) {
             shouldIGoIn.setImageResource(R.drawable.weekend);
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             shouldIGoIn.setImageResource(R.drawable.haveapint);
             randomPub = pubs.get(randomIndex);
-            text = getString(R.string.haveapint, randomPub.getName());
+            text = getString(R.string.haveapint, randomPub.name);
         }
         textView.setText(text);
         invalidateOptionsMenu();

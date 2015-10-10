@@ -92,7 +92,7 @@ public class RaceDays extends AppCompatActivity {
             // - get element from your dataset at this position
             final BadTime bt = mBadTimes.get(position);
             // - replace the contents of the view with that element
-            holder.text1.setText(bt.getLabel());
+            holder.text1.setText(bt.label);
             holder.text2.setText(bt.getDateString(df));
         }
 

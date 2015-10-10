@@ -2,12 +2,9 @@ package uk.me.peteharris.pintinyork.model;
 
 import android.net.Uri;
 
-import lombok.Getter;
-
-@Getter
 public class Pub {
-    String name;
-    String address;
+    public String name;
+    public String address;
 
     public Uri getAddressUri() {
         return new Uri.Builder()

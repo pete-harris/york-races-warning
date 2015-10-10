@@ -3,16 +3,13 @@ package uk.me.peteharris.pintinyork.model;
 import java.text.DateFormat;
 import java.util.Date;
 
-import lombok.Getter;
-
-@Getter
 public class BadTime {
     private final static int TYPE_RACEDAY = 1;
 
-    String label;
-    Date start;
-    Date end;
-    String type;
+    public String label;
+    public Date start;
+    public Date end;
+    public String type;
 
     public String getDateString(DateFormat df) {
         if(end.equals(start))
