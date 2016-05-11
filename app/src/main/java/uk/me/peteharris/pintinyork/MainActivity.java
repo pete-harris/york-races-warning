@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Pub> pubs;
 
     Pub randomPub = null;
+    private MenuItem testitem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         }
         textView.setText(text);
         invalidateOptionsMenu();
+
+        new RaceDayNotificationReceiver.Helper(this).scheduleAlarm();
     }
 
     @Override
@@ -66,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         menu.findItem(R.id.action_directions).setVisible(null != randomPub);
+
+        if(BuildConfig.DEBUG){
+            testitem = menu.add("Test Notification");
+        }
         return true;
     }
 
@@ -82,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             }
+        }
+        if(item == testitem){
+            RaceDayNotificationReceiver.showNotification(this, badTimes.get(0));
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

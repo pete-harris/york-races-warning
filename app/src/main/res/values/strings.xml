@@ -5,4 +5,5 @@
     <string name="raceday">Looks like it\'s a raceday - %s.  I\'d avoid town if I were you</string>
     <string name="weekend">It\'s a weekend.  It might be OK but watch out for stag and hen parties</string>
     <string name="haveapint">York has some excellent pubs, you should go and have a pint.  Why not try %s</string>
+    <string name="raceday_notification_title">It\'s a raceday!</string>
 </resources>
