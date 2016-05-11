@@ -28,5 +28,90 @@
     "start": "2015-10-09",
     "end": "2015-10-10",
     "type": "RACES"
+  },
+  {
+    "label": "Tattersalls Musidora Stakes",
+    "start": "2016-05-11",
+    "type": "RACES"
+  },
+  {
+    "label": "Betfred Dante Stakes",
+    "start": "2016-05-12",
+    "type": "RACES"
+  },
+  {
+    "label": "Betway Yorkshire Cup",
+    "start": "2016-05-13",
+    "type": "RACES"
+  },
+  {
+    "label": "weddingmates.co.uk Grand Cup",
+    "start": "2016-05-21",
+    "type": "RACES"
+  },
+  {
+    "label": "Mid Summer Raceday",
+    "start": "2016-06-10",
+    "type": "RACES"
+  },
+  {
+    "label": "Macmillan Charity Raceday",
+    "start": "2016-06-11",
+    "type": "RACES"
+  },
+  {
+    "label": "888sport Summer Stakes",
+    "start": "2016-07-08",
+    "type": "RACES"
+  },
+  {
+    "label": "57th John Smith's Cup",
+    "start": "2016-07-09",
+    "type": "RACES"
+  },
+  {
+    "label": "EBF Lyric Stakes and Kaiser Chiefs",
+    "start": "2016-07-22",
+    "type": "RACES"
+  },
+  {
+    "label": "Sky Bet York Stakes and The Corrs",
+    "start": "2016-07-23",
+    "type": "RACES"
+  },
+  {
+    "label": "Juddmonte International",
+    "start": "2016-08-17",
+    "type": "RACES"
+  },
+  {
+    "label": "Darley Yorkshire Oaks",
+    "start": "2016-08-18",
+    "type": "RACES"
+  },
+  {
+    "label": "Coolmore Nunthorpe",
+    "start": "2016-08-19",
+    "type": "RACES"
+  },
+  {
+    "label": "Betfred Ebor",
+    "start": "2016-08-20",
+    "type": "RACES"
+  },
+  {
+    "label": "The Press Family Raceday",
+    "start": "2016-09-04",
+    "type": "RACES"
+  },
+  {
+    "label": "Countryside Raceday",
+    "start": "2016-10-07",
+    "type": "RACES"
+  },
+  {
+    "label": "Coral Sprint Trophy",
+    "start": "2016-10-08",
+    "type": "RACES"
   }
 ]

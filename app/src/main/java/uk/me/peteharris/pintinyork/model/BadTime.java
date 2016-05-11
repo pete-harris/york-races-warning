@@ -12,7 +12,7 @@ public class BadTime {
     public String type;
 
     public String getDateString(DateFormat df) {
-        if(end.equals(start))
+        if(null == end || end.equals(start))
             return df.format(start);
         else
             return String.format("%s to %s", df.format(start), df.format(end));
@@ -20,6 +20,6 @@ public class BadTime {
 
     public boolean isItNow(Date d){
         return d.after(start)
-                && d.getTime() < end.getTime() + 1000 * 60 * 60 * 24;
+                && d.getTime() < (null == end ? start.getTime()  : end.getTime()) + 1000 * 60 * 60 * 24;
     }
 }
