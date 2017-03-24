@@ -1,117 +1,87 @@
 [
   {
-    "label": "John Smith's Cup Meeting",
-    "start": "2015-07-10",
-    "end": "2015-07-12",
-    "type": "RACES"
-  },
-  {
-    "label": "Tom Jones",
-    "start": "2015-07-24",
-    "end": "2015-07-25",
-    "type": "RACES"
-  },
-  {
-    "label": "Ebor Festival",
-    "start": "2015-08-19",
-    "end": "2015-08-22",
-    "type": "RACES"
-  },
-  {
-    "label": "September Meeting",
-    "start": "2015-09-06",
-    "end": "2015-09-06",
-    "type": "RACES"
-  },
-  {
-    "label": "October Meeting",
-    "start": "2015-10-09",
-    "end": "2015-10-10",
-    "type": "RACES"
-  },
-  {
     "label": "Tattersalls Musidora Stakes",
-    "start": "2016-05-11",
+    "start": "2017-05-17",
     "type": "RACES"
   },
   {
     "label": "Betfred Dante Stakes",
-    "start": "2016-05-12",
+    "start": "2017-05-18",
     "type": "RACES"
   },
   {
     "label": "Betway Yorkshire Cup",
-    "start": "2016-05-13",
+    "start": "2017-05-19",
     "type": "RACES"
   },
   {
     "label": "weddingmates.co.uk Grand Cup",
-    "start": "2016-05-21",
+    "start": "2017-05-27",
     "type": "RACES"
   },
   {
     "label": "Mid Summer Raceday",
-    "start": "2016-06-10",
+    "start": "2017-06-16",
     "type": "RACES"
   },
   {
     "label": "Macmillan Charity Raceday",
-    "start": "2016-06-11",
+    "start": "2017-06-17",
     "type": "RACES"
   },
   {
-    "label": "888sport Summer Stakes",
-    "start": "2016-07-08",
+    "label": "Summer Music Saturday with Olly Murs",
+    "start": "2017-07-01",
     "type": "RACES"
   },
   {
-    "label": "57th John Smith's Cup",
-    "start": "2016-07-09",
+    "label": "Summer Stakes",
+    "start": "2017-07-14",
     "type": "RACES"
   },
   {
-    "label": "EBF Lyric Stakes and Kaiser Chiefs",
-    "start": "2016-07-22",
+    "label": "58th John Smith's Cup",
+    "start": "2017-07-15",
     "type": "RACES"
   },
   {
-    "label": "Sky Bet York Stakes and The Corrs",
-    "start": "2016-07-23",
+    "label": "EBF Lyric Stakes and Jess Glynne",
+    "start": "2017-07-28",
     "type": "RACES"
   },
   {
     "label": "Juddmonte International",
-    "start": "2016-08-17",
+    "start": "2017-08-23",
     "type": "RACES"
   },
   {
-    "label": "Darley Yorkshire Oaks",
-    "start": "2016-08-18",
+    "label": "Darley Yorkshire Oaks and Ladies Day",
+    "start": "2017-08-24",
     "type": "RACES"
   },
   {
     "label": "Coolmore Nunthorpe",
-    "start": "2016-08-19",
+    "start": "2017-08-25",
     "type": "RACES"
   },
   {
     "label": "Betfred Ebor",
-    "start": "2016-08-20",
+    "start": "2017-08-26",
     "type": "RACES"
   },
   {
     "label": "The Press Family Raceday",
-    "start": "2016-09-04",
+    "start": "2017-09-10",
     "type": "RACES"
   },
   {
     "label": "Countryside Raceday",
-    "start": "2016-10-07",
+    "start": "2017-10-13",
     "type": "RACES"
   },
   {
     "label": "Coral Sprint Trophy",
-    "start": "2016-10-08",
+    "start": "2017-10-14",
     "type": "RACES"
   }
 ]
