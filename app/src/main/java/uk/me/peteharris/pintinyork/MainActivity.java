@@ -3,6 +3,7 @@ package uk.me.peteharris.pintinyork;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,15 +39,15 @@ public class MainActivity extends AppCompatActivity {
         BadTime current = DataHelper.isItBad(badTimes);
         if(null != current) {
             randomPub = null;
-            binding.setGoInImage(R.drawable.raceday);
+            binding.shouldIGoIn.setImageResource(R.drawable.raceday);
             binding.setGoInText(getString(R.string.raceday, current.label));
         } else if (DataHelper.isWeekend()) {
             randomPub = null;
-            binding.setGoInImage(R.drawable.weekend);
+            binding.shouldIGoIn.setImageResource(R.drawable.weekend);
             binding.setGoInText(getString(R.string.weekend));
         } else {
             randomPub = pubs.get(randomIndex);
-            binding.setGoInImage(R.drawable.haveapint);
+            binding.shouldIGoIn.setImageResource(R.drawable.pint);
             binding.setGoInText(getString(R.string.haveapint, randomPub.name));
         }
         invalidateOptionsMenu();

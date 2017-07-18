@@ -1,9 +1,5 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable
-            name="goInImage"
-            type="int" />
         <variable
             name="goInText"
             type="String" />
@@ -13,9 +9,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/shouldIGoIn"
-            app:imageResource="@{goInImage}"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
