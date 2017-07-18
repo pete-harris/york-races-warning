@@ -1,5 +1,6 @@
 package uk.me.peteharris.pintinyork;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,15 +13,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import uk.me.peteharris.pintinyork.databinding.ActivityRaceDaysBinding;
 import uk.me.peteharris.pintinyork.model.BadTime;
 
 
-public class RaceDays extends AppCompatActivity {
+public class RaceDaysActivity extends AppCompatActivity {
 
-    @Bind(R.id.badList)
-    RecyclerView mRecyclerView;
+    ActivityRaceDaysBinding binding;
 
     private ArrayList<BadTime> badTimes;
     private LinearLayoutManager mLayoutManager;
@@ -29,40 +28,38 @@ public class RaceDays extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_race_days);
-
-        ButterKnife.bind(this);
+        
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_race_days);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
+        binding.badList.setHasFixedSize(true);
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        binding.badList.setLayoutManager(mLayoutManager);
 
         badTimes = DataHelper.loadData(this);
 
         mAdapter = new BadTimeAdapter(badTimes);
-        mRecyclerView.setAdapter(mAdapter);
+        binding.badList.setAdapter(mAdapter);
     }
 
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        @Bind(android.R.id.text1)
         TextView text1;
-        @Bind(android.R.id.text2) TextView text2;
+        TextView text2;
         public ViewHolder(View v) {
             super(v);
-            ButterKnife.bind(this, v);
+            text1 = v.findViewById(android.R.id.text1);
+            text2 = v.findViewById(android.R.id.text2);
         }
     }
 
     public class BadTimeAdapter extends RecyclerView.Adapter<ViewHolder> {
         private ArrayList<BadTime> mBadTimes;
-        java.text.DateFormat df = DateFormat.getDateFormat(RaceDays.this);
+        java.text.DateFormat df = DateFormat.getDateFormat(RaceDaysActivity.this);
 
         // Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and

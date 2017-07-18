@@ -30,7 +30,7 @@
         </receiver>
 
         <activity
-            android:name="uk.me.peteharris.pintinyork.RaceDays"
+            android:name="uk.me.peteharris.pintinyork.RaceDaysActivity"
             android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_race_days" >
             <meta-data android:name="android.support.PARENT_ACTIVITY"
