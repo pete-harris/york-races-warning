@@ -1,14 +1,12 @@
-package uk.me.peteharris.pintinyork;
+package uk.me.peteharris.base;
 
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -17,14 +15,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import uk.me.peteharris.pintinyork.model.BadTime;
+import uk.me.peteharris.base.model.BadTime;
 
 /**
  * Created by pharris on 11/05/16.
  */
 public class RaceDayNotificationReceiver extends BroadcastReceiver {
-    private static final String ACTION_RACEDAY = "uk.me.peteharris.pintinyork.action.RACEDAY_ALERT";
-    private static final String EXTRA_BADTIME = "uk.me.peteharris.pintinyork.EXTRA_BAD_TIME";
+    private static final String ACTION_RACEDAY = "uk.me.peteharris.uk.me.peteharris.pintinyork.action.RACEDAY_ALERT";
+    private static final String EXTRA_BADTIME = "uk.me.peteharris.uk.me.peteharris.pintinyork.EXTRA_BAD_TIME";
 
     @Override
     public void onReceive(Context context, Intent intent) {

@@ -1,4 +1,4 @@
-package uk.me.peteharris.pintinyork;
+package uk.me.peteharris.base;
 
 import android.content.Context;
 
@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import uk.me.peteharris.pintinyork.model.BadTime;
-import uk.me.peteharris.pintinyork.model.Pub;
+import uk.me.peteharris.base.model.BadTime;
+import uk.me.peteharris.base.model.Pub;
 
 /**
  * Created by pharris on 10/07/15.

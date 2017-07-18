@@ -10,16 +10,15 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="uk.me.peteharris.pintinyork.MainActivity"
+            android:name="uk.me.peteharris.base.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name="uk.me.peteharris.pintinyork.GoOutWidget" >
+        <receiver android:name="uk.me.peteharris.base.GoOutWidget" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -30,20 +29,20 @@
         </receiver>
 
         <activity
-            android:name="uk.me.peteharris.pintinyork.RaceDaysActivity"
-            android:parentActivityName=".MainActivity"
+            android:name="uk.me.peteharris.base.RaceDaysActivity"
+            android:parentActivityName="uk.me.peteharris.base.MainActivity"
             android:label="@string/title_activity_race_days" >
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="uk.me.peteharris.base.MainActivity" />
         </activity>
 
-        <receiver android:name=".RaceDayNotificationReceiver$OnBootReceiver">
+        <receiver android:name="uk.me.peteharris.base.RaceDayNotificationReceiver$OnBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".RaceDayNotificationReceiver"
+        <receiver android:name="uk.me.peteharris.base.RaceDayNotificationReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="uk.me.peteharris.pintinyork.action.RACEDAY_ALERT"  />

@@ -1,9 +1,8 @@
-package uk.me.peteharris.pintinyork;
+package uk.me.peteharris.base;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,9 +10,9 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.Random;
 
-import uk.me.peteharris.pintinyork.databinding.ActivityMainBinding;
-import uk.me.peteharris.pintinyork.model.BadTime;
-import uk.me.peteharris.pintinyork.model.Pub;
+import uk.me.peteharris.base.databinding.ActivityMainBinding;
+import uk.me.peteharris.base.model.BadTime;
+import uk.me.peteharris.base.model.Pub;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -70,17 +69,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_raceday: {
-                Intent intent = new Intent(this, RaceDaysActivity.class);
-                startActivity(intent);
-                return true;
-            }
-            case R.id.action_directions: {
-                Intent intent = new Intent(Intent.ACTION_VIEW, randomPub.getAddressUri());
-                startActivity(intent);
-                return true;
-            }
+        int i = item.getItemId();
+        if (i == R.id.action_raceday) {
+            Intent intent = new Intent(this, RaceDaysActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (i == R.id.action_directions) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, randomPub.getAddressUri());
+            startActivity(intent);
+            return true;
         }
         if(item == testitem){
             RaceDayNotificationReceiver.showNotification(this, badTimes.get(0));

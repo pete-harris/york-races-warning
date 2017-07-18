@@ -1,4 +1,4 @@
-package uk.me.peteharris.pintinyork.model;
+package uk.me.peteharris.base.model;
 
 import android.net.Uri;
 

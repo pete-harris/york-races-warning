@@ -1,4 +1,4 @@
-package uk.me.peteharris.pintinyork;
+package uk.me.peteharris.base;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import uk.me.peteharris.pintinyork.databinding.ActivityRaceDaysBinding;
-import uk.me.peteharris.pintinyork.model.BadTime;
+import uk.me.peteharris.base.databinding.ActivityRaceDaysBinding;
+import uk.me.peteharris.base.model.BadTime;
 
 
 public class RaceDaysActivity extends AppCompatActivity {
