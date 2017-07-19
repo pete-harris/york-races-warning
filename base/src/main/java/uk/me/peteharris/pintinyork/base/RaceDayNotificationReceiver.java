@@ -1,4 +1,4 @@
-package uk.me.peteharris.base;
+package uk.me.peteharris.pintinyork.base;
 
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -15,7 +15,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import uk.me.peteharris.base.model.BadTime;
+import uk.me.peteharris.pintinyork.R;
+import uk.me.peteharris.pintinyork.base.model.BadTime;
 
 /**
  * Created by pharris on 11/05/16.

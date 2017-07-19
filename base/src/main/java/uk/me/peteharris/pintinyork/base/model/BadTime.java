@@ -1,4 +1,4 @@
-package uk.me.peteharris.base.model;
+package uk.me.peteharris.pintinyork.base.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

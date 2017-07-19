@@ -6,14 +6,11 @@ android {
 
     defaultConfig {
         applicationId "uk.me.peteharris.pintinyork"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 26
-        versionCode 6
-        versionName "1.0.4"
+        versionCode 7
+        versionName "1.0.5"
         vectorDrawables.useSupportLibrary = true
-    }
-    dataBinding {
-        enabled true
     }
     buildTypes {
         release {

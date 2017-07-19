@@ -1,4 +1,4 @@
-package uk.me.peteharris.base;
+package uk.me.peteharris.pintinyork.base;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -10,9 +10,11 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.Random;
 
-import uk.me.peteharris.base.databinding.ActivityMainBinding;
-import uk.me.peteharris.base.model.BadTime;
-import uk.me.peteharris.base.model.Pub;
+import uk.me.peteharris.pintinyork.BuildConfig;
+import uk.me.peteharris.pintinyork.base.model.BadTime;
+import uk.me.peteharris.pintinyork.base.model.Pub;
+import uk.me.peteharris.pintinyork.R;
+import uk.me.peteharris.pintinyork.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {

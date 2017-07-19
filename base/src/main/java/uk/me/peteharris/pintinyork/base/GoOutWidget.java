@@ -1,4 +1,4 @@
-package uk.me.peteharris.base;
+package uk.me.peteharris.pintinyork.base;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -9,7 +9,8 @@ import android.widget.RemoteViews;
 
 import java.util.ArrayList;
 
-import uk.me.peteharris.base.model.BadTime;
+import uk.me.peteharris.pintinyork.R;
+import uk.me.peteharris.pintinyork.base.model.BadTime;
 
 
 /**
