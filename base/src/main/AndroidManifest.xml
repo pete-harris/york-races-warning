@@ -1,17 +1,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uk.me.peteharris.pintinyork" >
+    package="uk.me.peteharris.pintinyork">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
 
         <activity
             android:name=".base.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
+            <meta-data
+                android:name="default-url"
+                android:value="https://isitaraceday.peteharris.me.uk/" />
+            <meta-data
+                android:name="asset_statements"
+                android:resource="@string/asset_statements" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,25 +27,33 @@
                 android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
+                    android:scheme="http"
                     android:host="isitaraceday.peteharris.me.uk"
-                    android:pathPattern="/.*"
-                    android:scheme="http" />
+                    android:pathPattern="/.*" />
+            </intent-filter>
+            <intent-filter android:order="1">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
+                    android:scheme="https"
                     android:host="isitaraceday.peteharris.me.uk"
-                    android:pathPattern="/.*"
-                    android:scheme="https" />
+                    android:pathPattern="/.*" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".base.RaceDaysActivity"
             android:parentActivityName=".base.MainActivity"
-            android:label="@string/title_activity_race_days" >
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
+            android:label="@string/title_activity_race_days">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
                 android:value=".base.MainActivity" />
         </activity>
 

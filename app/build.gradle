@@ -8,9 +8,12 @@ android {
         applicationId "uk.me.peteharris.pintinyork"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 7
-        versionName "1.0.5"
+        versionCode 8
+        versionName "1.0.6"
         vectorDrawables.useSupportLibrary = true
+    }
+    dataBinding {
+        enabled true
     }
     buildTypes {
         release {
