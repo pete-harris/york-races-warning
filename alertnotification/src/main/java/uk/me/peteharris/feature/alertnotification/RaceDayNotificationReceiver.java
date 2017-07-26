@@ -1,7 +1,9 @@
-package uk.me.peteharris.pintinyork.base;
+package uk.me.peteharris.feature.alertnotification;
 
+import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -15,15 +17,18 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import uk.me.peteharris.pintinyork.R;
+import uk.me.peteharris.pintinyork.base.DataHelper;
+import uk.me.peteharris.pintinyork.base.MainActivity;
 import uk.me.peteharris.pintinyork.base.model.BadTime;
+import uk.me.peteharris.pintinyork.feature.alertnotification.R;
 
 /**
  * Created by pharris on 11/05/16.
  */
 public class RaceDayNotificationReceiver extends BroadcastReceiver {
-    private static final String ACTION_RACEDAY = "uk.me.peteharris.uk.me.peteharris.pintinyork.action.RACEDAY_ALERT";
-    private static final String EXTRA_BADTIME = "uk.me.peteharris.uk.me.peteharris.pintinyork.EXTRA_BAD_TIME";
+    public static final String NOTIFICATION_CHANNEL_RACEDAY_ALERT = "racedayAlert";
+    private static final String ACTION_RACEDAY = "uk.me.peteharris.pintinyork.action.NOTIFICATION_CHANNEL_RACEDAY_ALERT";
+    private static final String EXTRA_BADTIME = "uk.me.peteharris.pintinyork.EXTRA_BAD_TIME";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -50,7 +55,7 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
             switch(intent.getAction()) {
                 case "android.intent.action.BOOT_COMPLETED":
-                    // Set the alarm here.
+                    Log.d("RaceDayNotification", "Boot detected, scheduling alarm");
                     new Helper(context).scheduleAlarm();
                     break;
             }
@@ -65,6 +70,10 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
         public Helper(Context context) {
             mAlarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
             mContext = context;
+
+            if(Build.VERSION.SDK_INT >= 26){
+                createNotificationChannel(context);
+            }
         }
 
         public void scheduleAlarm() {
@@ -116,8 +125,8 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         String text = context.getString(R.string.raceday, race.label);
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(context)
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_RACEDAY_ALERT)
                         .setSmallIcon(R.drawable.ic_raceday_notification)
                         .setContentTitle(context.getString(R.string.raceday_notification_title))
                         .setContentText(text)
@@ -127,15 +136,25 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(text));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mBuilder.setVisibility(Notification.VISIBILITY_PUBLIC);
+            builder.setVisibility(Notification.VISIBILITY_PUBLIC);
         }
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            mBuilder.setCategory(Notification.CATEGORY_REMINDER);
+            builder.setCategory(Notification.CATEGORY_REMINDER);
         }
 
-        NotificationManager mNotificationManager =
+        NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(R.id.notification_raceday, mBuilder.build());
+        notificationManager.notify(R.id.notification_raceday, builder.build());
     }
 
+    @TargetApi(26)
+    public static void createNotificationChannel(Context context) {
+        NotificationManager mNotificationManager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        CharSequence name = context.getString(R.string.channel_name);
+        NotificationChannel mChannel = new NotificationChannel(NOTIFICATION_CHANNEL_RACEDAY_ALERT, name, NotificationManager.IMPORTANCE_LOW);
+        mChannel.setDescription(context.getString(R.string.channel_description));
+        mNotificationManager.createNotificationChannel(mChannel);
+    }
 }

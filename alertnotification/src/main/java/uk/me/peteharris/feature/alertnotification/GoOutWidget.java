@@ -1,4 +1,4 @@
-package uk.me.peteharris.pintinyork.base;
+package uk.me.peteharris.feature.alertnotification;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -9,8 +9,10 @@ import android.widget.RemoteViews;
 
 import java.util.ArrayList;
 
-import uk.me.peteharris.pintinyork.R;
+import uk.me.peteharris.pintinyork.base.DataHelper;
+import uk.me.peteharris.pintinyork.base.MainActivity;
 import uk.me.peteharris.pintinyork.base.model.BadTime;
+import uk.me.peteharris.pintinyork.feature.alertnotification.R;
 
 
 /**

@@ -19,13 +19,12 @@ import uk.me.peteharris.pintinyork.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    private ActivityMainBinding binding;
 
     private ArrayList<BadTime> badTimes;
     private ArrayList<Pub> pubs;
 
-    Pub randomPub = null;
-    private MenuItem testitem;
+    private Pub randomPub = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
             binding.setGoInText(getString(R.string.haveapint, randomPub.name));
         }
         invalidateOptionsMenu();
-
-        new RaceDayNotificationReceiver.Helper(this).scheduleAlarm();
     }
 
     @Override
@@ -63,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
         menu.findItem(R.id.action_directions).setVisible(null != randomPub);
 
-        if(BuildConfig.DEBUG){
-            testitem = menu.add("Test Notification");
-        }
         return true;
     }
 
@@ -79,10 +73,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (i == R.id.action_directions) {
             Intent intent = new Intent(Intent.ACTION_VIEW, randomPub.getAddressUri());
             startActivity(intent);
-            return true;
-        }
-        if(item == testitem){
-            RaceDayNotificationReceiver.showNotification(this, badTimes.get(0));
             return true;
         }
         return super.onOptionsItemSelected(item);
