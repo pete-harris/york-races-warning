@@ -39,6 +39,8 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
                 Date date = new Date();
                 if(race.isItNow(date)) {
                     showNotification(context, race);
+                } else {
+                    Log.d("RaceDayNotification", String.format("Race %s is not today (%s)", race.label, race.start.toString()));
                 }
                 // schedule next week's alarm
                 new Helper(context).scheduleAlarm();
@@ -90,7 +92,6 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
                     nextBadTime = b;
                 }
             }
-
             if(null == nextBadTime) return;
 
             Intent intent = new Intent(mContext, RaceDayNotificationReceiver.class);
@@ -108,7 +109,7 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
             calendar.set(Calendar.SECOND, 0);
             calendar.set(Calendar.MILLISECOND, 0);
 
-            Log.d("RaceDayNotification", String.format("alarm scheduled for %s", calendar.getTime().toString()));
+            Log.d("RaceDayNotification", String.format("alarm scheduled for %s for %s", calendar.getTime().toString(), nextBadTime.start.toString()));
 
             mAlarmManager.set(
                     AlarmManager.RTC_WAKEUP,
