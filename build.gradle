@@ -14,7 +14,17 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
+}
+
+ext {
+    buildTools = "26.0.0"
+    compileSdk = 26
+    minSdk = 19
+    versionCode = 1
+    versionName = "1.0"
+    supportLib = "26.0.0"
+    lifecycleLib = "1.0.0-alpha6"
 }
