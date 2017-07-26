@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">York Races Warning</string>
+
+    <string name="title_activity_race_days">RaceDays</string>
+    <string name="raceday">Looks like it\'s a raceday - %s.  I\'d avoid town if I were you</string>
+    <string name="weekend">It\'s a weekend.  It might be OK but watch out for stag and hen parties</string>
+    <string name="haveapint">York has some excellent pubs, you should go and have a pint.  Why not try %s</string>
+    <string name="asset_statements">[{\n  \"relation\": [\"delegate_permission/common.handle_all_urls\"],\n  \"target\": {\n    \"namespace\": \"web\",\n    \"site\": \"https://isitaraceday.peteharris.me.uk\",\n  }\n}]</string>
+</resources>
