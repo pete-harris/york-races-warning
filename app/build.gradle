@@ -8,8 +8,8 @@ android {
         applicationId "uk.me.peteharris.pintinyork"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 8
-        versionName "1.0.6"
+        versionCode 9
+        versionName "1.0.7"
         vectorDrawables.useSupportLibrary = true
     }
     dataBinding {
