@@ -7,6 +7,11 @@
         app:showAsAction="never"
         android:id="@+id/action_raceday"
         />
+    <item
+        android:title="Pub List"
+        app:showAsAction="never"
+        android:id="@+id/action_publist"
+        />
 
     <item
         android:title="@string/get_directions"

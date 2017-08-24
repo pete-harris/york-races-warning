@@ -53,6 +53,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".base.MainActivity" />
         </activity>
+        <activity
+            android:name=".base.PubListActivity"
+            android:parentActivityName=".base.MainActivity"
+            android:label="@string/title_activity_pub_list">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".base.MainActivity" />
+        </activity>
 
     </application>
 </manifest>

@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RaceDaysActivity.class);
             startActivity(intent);
             return true;
+        } else if (i == R.id.action_publist) {
+            Intent intent = new Intent(this, PubListActivity.class);
+            startActivity(intent);
+            return true;
         } else if (i == R.id.action_directions) {
             Intent intent = new Intent(Intent.ACTION_VIEW, randomPub.getAddressUri());
             startActivity(intent);

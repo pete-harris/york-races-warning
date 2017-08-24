@@ -29,16 +29,16 @@ public class RaceDaysActivity extends AppCompatActivity {
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        binding.badList.setHasFixedSize(true);
+        binding.recycler.setHasFixedSize(true);
 
         // use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        binding.badList.setLayoutManager(mLayoutManager);
+        binding.recycler.setLayoutManager(mLayoutManager);
 
         ArrayList<BadTime> badTimes = DataHelper.loadData(this);
 
         BadTimeAdapter mAdapter = new BadTimeAdapter(badTimes);
-        binding.badList.setAdapter(mAdapter);
+        binding.recycler.setAdapter(mAdapter);
     }
 
 
