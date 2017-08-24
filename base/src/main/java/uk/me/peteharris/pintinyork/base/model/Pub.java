@@ -2,15 +2,24 @@ package uk.me.peteharris.pintinyork.base.model;
 
 import android.net.Uri;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Pub {
+    @SerializedName("name")
     public String name;
-    public String address;
+    @SerializedName("p")
+    public String postcode;
+    @SerializedName("lat")
+    double latitude;
+    @SerializedName("lon")
+    double longitude;
+
 
     public Uri getAddressUri() {
         return new Uri.Builder()
                 .scheme("geo")
-                .authority("0,0")
-                .appendQueryParameter("q", String.format("%s, %s", name, address))
+                .authority(String.format("%f,%f", latitude, longitude))
+                .appendQueryParameter("q", String.format("%s, %s", name, postcode))
                 .build();
     }
 }
