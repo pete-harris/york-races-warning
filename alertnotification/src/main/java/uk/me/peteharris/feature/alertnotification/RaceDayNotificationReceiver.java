@@ -10,6 +10,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -29,13 +30,15 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
     public static final String NOTIFICATION_CHANNEL_RACEDAY_ALERT = "racedayAlert";
     private static final String ACTION_RACEDAY = "uk.me.peteharris.pintinyork.action.NOTIFICATION_CHANNEL_RACEDAY_ALERT";
     private static final String EXTRA_BADTIME = "uk.me.peteharris.pintinyork.EXTRA_BAD_TIME";
+    public static final String EXTRA_BADTIME_HACK = "uk.me.peteharris.pintinyork.EXTRA_HACK";
 
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("RaceDayNotification", String.format("Received intent: %s", intent.getAction()));
         switch (intent.getAction()){
             case ACTION_RACEDAY:
-                BadTime race = intent.getParcelableExtra(EXTRA_BADTIME);
+                Bundle hack = intent.getBundleExtra(EXTRA_BADTIME_HACK);
+                BadTime race = hack.getParcelable(EXTRA_BADTIME);
                 Date date = new Date();
                 if(race.isItNow(date)) {
                     showNotification(context, race);
@@ -96,7 +99,12 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
 
             Intent intent = new Intent(mContext, RaceDayNotificationReceiver.class);
             intent.setAction(ACTION_RACEDAY);
-            intent.putExtra(EXTRA_BADTIME, nextBadTime);
+
+            Bundle hackBundle = new Bundle();
+            hackBundle.putParcelable(EXTRA_BADTIME, nextBadTime);
+            intent.putExtra(EXTRA_BADTIME_HACK, hackBundle);
+
+            intent.putExtra(EXTRA_BADTIME, hackBundle);
             PendingIntent alarmIntent = PendingIntent.getBroadcast(mContext, 0, intent, 0);
 
             // cancel any existing alarm
