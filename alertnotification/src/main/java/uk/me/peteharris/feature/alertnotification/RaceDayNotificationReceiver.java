@@ -21,11 +21,9 @@ import java.util.Date;
 import uk.me.peteharris.pintinyork.base.DataHelper;
 import uk.me.peteharris.pintinyork.base.MainActivity;
 import uk.me.peteharris.pintinyork.base.model.BadTime;
+import uk.me.peteharris.pintinyork.feature.alertnotification.BuildConfig;
 import uk.me.peteharris.pintinyork.feature.alertnotification.R;
 
-/**
- * Created by pharris on 11/05/16.
- */
 public class RaceDayNotificationReceiver extends BroadcastReceiver {
     public static final String NOTIFICATION_CHANNEL_RACEDAY_ALERT = "racedayAlert";
     private static final String ACTION_RACEDAY = "uk.me.peteharris.pintinyork.action.NOTIFICATION_CHANNEL_RACEDAY_ALERT";
@@ -72,7 +70,7 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
         private final Context mContext;
         private final AlarmManager mAlarmManager;
 
-        public Helper(Context context) {
+        Helper(Context context) {
             mAlarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
             mContext = context;
 
@@ -81,7 +79,7 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
             }
         }
 
-        public void scheduleAlarm() {
+        void scheduleAlarm() {
 
             ArrayList<BadTime> badTimes = DataHelper.loadData(mContext);
 
@@ -112,8 +110,8 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(nextBadTime.start.getTime());
-            calendar.set(Calendar.HOUR_OF_DAY, 8);
-            calendar.set(Calendar.MINUTE, 00);
+            calendar.set(Calendar.HOUR_OF_DAY, BuildConfig.ALERT_HOUR);
+            calendar.set(Calendar.MINUTE, BuildConfig.ALERT_MINUTE);
             calendar.set(Calendar.SECOND, 0);
             calendar.set(Calendar.MILLISECOND, 0);
 

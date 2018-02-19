@@ -18,9 +18,6 @@ import java.util.Date;
 import uk.me.peteharris.pintinyork.base.model.BadTime;
 import uk.me.peteharris.pintinyork.base.model.Pub;
 
-/**
- * Created by pharris on 10/07/15.
- */
 public class DataHelper {
 
     public static ArrayList<BadTime> loadData(Context context) {
@@ -40,7 +37,7 @@ public class DataHelper {
 
     }
     
-    public static ArrayList<Pub> loadPubList(Context context) {
+    static ArrayList<Pub> loadPubList(Context context) {
         try {
             Reader isr = new BufferedReader(new InputStreamReader(context.getAssets().open("publist.json")));
             Gson gson = new GsonBuilder()
