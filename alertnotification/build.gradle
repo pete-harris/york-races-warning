@@ -10,13 +10,18 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField 'int', 'ALERT_HOUR', '19'
+        buildConfigField 'int', 'ALERT_MINUTE', '45'
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'int', 'ALERT_HOUR', '8'
+            buildConfigField 'int', 'ALERT_MINUTE', '0'
         }
     }
 }
