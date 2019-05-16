@@ -3,5 +3,6 @@
     <string name="channel_name">Raceday alerts</string>
     <string name="channel_description">Get alert on the morning of a raceday</string>
     <string name="raceday_notification_title">It\'s a raceday!</string>
+    <string name="notification_feature">Reminder Notifications</string>
 
 </resources>

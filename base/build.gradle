@@ -1,12 +1,11 @@
-apply plugin: 'com.android.feature'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.compileSdk
     buildToolsVersion rootProject.buildTools
 
-    baseFeature true
-
     defaultConfig {
+        applicationId "uk.me.peteharris.pintinyork"
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.compileSdk
         versionCode 2
@@ -15,6 +14,8 @@ android {
     dataBinding {
         enabled true
     }
+    dynamicFeatures = [":alertnotification"]
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,10 +25,9 @@ android {
 }
 
 dependencies {
-    application project(':app')
-
     api fileTree(dir: 'libs', include: ['*.jar'])
     api 'com.google.code.gson:gson:2.8.0'
+
     api "com.android.support:appcompat-v7:${rootProject.supportLib}"
     api "com.android.support:recyclerview-v7:${rootProject.supportLib}"
     api "com.android.support:appcompat-v7:${rootProject.supportLib}"

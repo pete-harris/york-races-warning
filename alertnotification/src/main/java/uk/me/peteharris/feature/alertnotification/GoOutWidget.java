@@ -14,7 +14,6 @@ import uk.me.peteharris.pintinyork.base.MainActivity;
 import uk.me.peteharris.pintinyork.base.model.BadTime;
 import uk.me.peteharris.pintinyork.feature.alertnotification.R;
 
-
 /**
  * Implementation of App Widget functionality.
  */
@@ -46,15 +45,12 @@ public class GoOutWidget extends AppWidgetProvider {
 
         ArrayList<BadTime> data = DataHelper.loadData(context);
         int image;
-        int color;
         if(null != DataHelper.isItBad(data)){
             image = R.drawable.widget_raceday;
         } else if(DataHelper.isWeekend()){
             image = R.drawable.widget_weekend;
-            color = R.color.careful;
         } else {
             image = R.drawable.widget_haveapint;
-            color = R.color.go;
         }
 //        CharSequence widgetText = context.getString(R.string.appwidget_text);
 //        // Construct the RemoteViews object

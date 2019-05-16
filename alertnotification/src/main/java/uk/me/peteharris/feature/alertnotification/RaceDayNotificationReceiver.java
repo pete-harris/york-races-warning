@@ -131,7 +131,7 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
                 0,
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
-        String text = context.getString(R.string.raceday, race.label);
+        String text = context.getString(uk.me.peteharris.pintinyork.R.string.raceday, race.label);
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_RACEDAY_ALERT)
                         .setSmallIcon(R.drawable.ic_raceday_notification)
