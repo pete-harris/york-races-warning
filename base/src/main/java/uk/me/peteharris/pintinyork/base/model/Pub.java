@@ -4,6 +4,8 @@ import android.net.Uri;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Locale;
+
 public class Pub {
     @SerializedName("name")
     public String name;
@@ -16,7 +18,7 @@ public class Pub {
     public Uri getAddressUri() {
         return new Uri.Builder()
                 .scheme("geo")
-                .authority(String.format("%f,%f", latitude, longitude))
+                .authority(String.format(Locale.UK, "%f,%f", latitude, longitude))
                 .appendQueryParameter("q", name)
                 .build();
     }
