@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Racedays"
+        android:title="@string/racedays"
         app:showAsAction="never"
         android:id="@+id/action_raceday"
         />
 
     <item
-        android:title="Get Directions"
-        app:showAsAction="always"
+        android:title="@string/get_directions"
+        app:showAsAction="ifRoom"
         android:id="@+id/action_directions"
         android:visible="false"
         />

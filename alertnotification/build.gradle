@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.dynamic-feature'
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -18,7 +18,6 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'int', 'ALERT_HOUR', '8'
             buildConfigField 'int', 'ALERT_MINUTE', '0'
