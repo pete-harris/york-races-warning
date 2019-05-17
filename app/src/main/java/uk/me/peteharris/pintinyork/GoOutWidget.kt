@@ -57,7 +57,7 @@ class GoOutWidget : AppWidgetProvider() {
         val intent = Intent(context, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
         views.setOnClickPendingIntent(R.id.widget_state, pendingIntent)
-        
+
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views)
     }
