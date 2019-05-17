@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="go">#32FF32</color>
-    <color name="bad">#FF3333</color>
-    <color name="careful">#FF9932</color>
-</resources>
+<resources></resources>
