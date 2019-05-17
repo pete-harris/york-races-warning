@@ -25,7 +25,8 @@ class MainActivity : AppCompatActivity() {
         val pubs = dataHelper.loadPubList(this)
         val randomIndex = Random().nextInt(pubs!!.size)
 
-        val current = dataHelper.isItBad(badTimes!!)
+        val now = Date()
+        val current = badTimes?.firstOrNull { it.isItNow(now) }
         when {
             null != current -> {
                 randomPub = null
