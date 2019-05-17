@@ -76,8 +76,8 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
         }
 
         void scheduleAlarm() {
-
-            ArrayList<BadTime> badTimes = DataHelper.loadData(mContext);
+            final DataHelper dataHelper = new DataHelper();
+            final ArrayList<BadTime> badTimes = dataHelper.loadData(mContext);
 
             BadTime nextBadTime = null;
 

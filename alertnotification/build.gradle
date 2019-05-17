@@ -1,4 +1,6 @@
 apply plugin: 'com.android.dynamic-feature'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -18,7 +20,6 @@ android {
     }
     buildTypes {
         release {
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'int', 'ALERT_HOUR', '8'
             buildConfigField 'int', 'ALERT_MINUTE', '0'
         }
@@ -27,4 +28,8 @@ android {
 
 dependencies {
     implementation project(':base')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

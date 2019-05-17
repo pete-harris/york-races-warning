@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -11,10 +13,10 @@ android {
         versionCode 2
         versionName "1.1.0"
     }
-    dataBinding {
-        enabled true
-    }
     dynamicFeatures = [":alertnotification"]
+    androidExtensions {
+        experimental = true
+    }
 
     buildTypes {
         release {
@@ -31,4 +33,8 @@ dependencies {
     api "com.android.support:appcompat-v7:${rootProject.supportLib}"
     api "com.android.support:recyclerview-v7:${rootProject.supportLib}"
     api "com.android.support:appcompat-v7:${rootProject.supportLib}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

@@ -42,12 +42,12 @@ public class GoOutWidget extends AppWidgetProvider {
 
     private static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                         int appWidgetId) {
-
-        ArrayList<BadTime> data = DataHelper.loadData(context);
+        final DataHelper dataHelper = new DataHelper();
+        ArrayList<BadTime> data = dataHelper.loadData(context);
         int image;
-        if(null != DataHelper.isItBad(data)){
+        if(null != dataHelper.isItBad(data)){
             image = R.drawable.widget_raceday;
-        } else if(DataHelper.isWeekend()){
+        } else if(dataHelper.isWeekend()){
             image = R.drawable.widget_weekend;
         } else {
             image = R.drawable.widget_haveapint;
