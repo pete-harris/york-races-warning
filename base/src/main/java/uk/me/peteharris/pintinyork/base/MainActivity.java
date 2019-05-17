@@ -6,23 +6,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import uk.me.peteharris.pintinyork.R;
+import uk.me.peteharris.pintinyork.base.model.BadTime;
+import uk.me.peteharris.pintinyork.base.model.Pub;
+import uk.me.peteharris.pintinyork.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import uk.me.peteharris.pintinyork.BuildConfig;
-import uk.me.peteharris.pintinyork.base.model.BadTime;
-import uk.me.peteharris.pintinyork.base.model.Pub;
-import uk.me.peteharris.pintinyork.R;
-import uk.me.peteharris.pintinyork.databinding.ActivityMainBinding;
-
 
 public class MainActivity extends AppCompatActivity {
-
-    private ActivityMainBinding binding;
-
-    private ArrayList<BadTime> badTimes;
-    private ArrayList<Pub> pubs;
 
     private Pub randomPub = null;
 
@@ -30,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        badTimes = DataHelper.loadData(this);
-        pubs = DataHelper.loadPubList(this);
+        ArrayList<BadTime> badTimes = DataHelper.loadData(this);
+        ArrayList<Pub> pubs = DataHelper.loadPubList(this);
         int randomIndex = new Random().nextInt(pubs.size());
 
         BadTime current = DataHelper.isItBad(badTimes);

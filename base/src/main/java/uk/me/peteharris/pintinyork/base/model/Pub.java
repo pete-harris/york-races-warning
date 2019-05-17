@@ -10,8 +10,10 @@ public class Pub {
     @SerializedName("name")
     public String name;
     @SerializedName("lat")
+    private
     double latitude;
     @SerializedName("lon")
+    private
     double longitude;
 
 

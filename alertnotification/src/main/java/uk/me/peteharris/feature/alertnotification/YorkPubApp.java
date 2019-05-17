@@ -2,7 +2,6 @@ package uk.me.peteharris.feature.alertnotification;
 
 import android.app.Application;
 
-
 public class YorkPubApp extends Application {
 
     @Override

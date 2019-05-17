@@ -25,27 +25,25 @@ import uk.me.peteharris.pintinyork.feature.alertnotification.BuildConfig;
 import uk.me.peteharris.pintinyork.feature.alertnotification.R;
 
 public class RaceDayNotificationReceiver extends BroadcastReceiver {
-    public static final String NOTIFICATION_CHANNEL_RACEDAY_ALERT = "racedayAlert";
+    private static final String NOTIFICATION_CHANNEL_RACEDAY_ALERT = "racedayAlert";
     private static final String ACTION_RACEDAY = "uk.me.peteharris.pintinyork.action.NOTIFICATION_CHANNEL_RACEDAY_ALERT";
     private static final String EXTRA_BADTIME = "uk.me.peteharris.pintinyork.EXTRA_BAD_TIME";
-    public static final String EXTRA_BADTIME_HACK = "uk.me.peteharris.pintinyork.EXTRA_HACK";
+    private static final String EXTRA_BADTIME_HACK = "uk.me.peteharris.pintinyork.EXTRA_HACK";
 
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("RaceDayNotification", String.format("Received intent: %s", intent.getAction()));
-        switch (intent.getAction()){
-            case ACTION_RACEDAY:
-                Bundle hack = intent.getBundleExtra(EXTRA_BADTIME_HACK);
-                BadTime race = hack.getParcelable(EXTRA_BADTIME);
-                Date date = new Date();
-                if(race.isItNow(date)) {
-                    showNotification(context, race);
-                } else {
-                    Log.d("RaceDayNotification", String.format("Race %s is not today (%s)", race.label, race.start.toString()));
-                }
-                // schedule next week's alarm
-                new Helper(context).scheduleAlarm();
-                break;
+        if (ACTION_RACEDAY.equals(intent.getAction())) {
+            Bundle hack = intent.getBundleExtra(EXTRA_BADTIME_HACK);
+            BadTime race = hack.getParcelable(EXTRA_BADTIME);
+            Date date = new Date();
+            if (race.isItNow(date)) {
+                showNotification(context, race);
+            } else {
+                Log.d("RaceDayNotification", String.format("Race %s is not today (%s)", race.label, race.start.toString()));
+            }
+            // schedule next week's alarm
+            new Helper(context).scheduleAlarm();
         }
     }
 
@@ -56,11 +54,9 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            switch(intent.getAction()) {
-                case "android.intent.action.BOOT_COMPLETED":
-                    Log.d("RaceDayNotification", "Boot detected, scheduling alarm");
-                    new Helper(context).scheduleAlarm();
-                    break;
+            if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+                Log.d("RaceDayNotification", "Boot detected, scheduling alarm");
+                new Helper(context).scheduleAlarm();
             }
         }
     }
@@ -124,7 +120,7 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
         }
     }
 
-    public static void showNotification(Context context, BadTime race) {
+    private static void showNotification(Context context, BadTime race) {
         Intent intent = new Intent(context, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 context,
@@ -155,7 +151,7 @@ public class RaceDayNotificationReceiver extends BroadcastReceiver {
     }
 
     @TargetApi(26)
-    public static void createNotificationChannel(Context context) {
+    private static void createNotificationChannel(Context context) {
         NotificationManager mNotificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 

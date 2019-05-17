@@ -11,8 +11,8 @@ public class BadTime implements Parcelable {
 
     public String label;
     public Date start;
-    public Date end;
-    public String type;
+    private Date end;
+    private String type;
 
     public String getDateString(DateFormat df) {
         if(null == end || end.equals(start))
@@ -42,7 +42,7 @@ public class BadTime implements Parcelable {
     public BadTime() {
     }
 
-    protected BadTime(Parcel in) {
+    private BadTime(Parcel in) {
         this.label = in.readString();
         long tmpStart = in.readLong();
         this.start = tmpStart == -1 ? null : new Date(tmpStart);
