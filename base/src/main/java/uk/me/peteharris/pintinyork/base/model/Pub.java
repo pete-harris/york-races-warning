@@ -7,8 +7,6 @@ import com.google.gson.annotations.SerializedName;
 public class Pub {
     @SerializedName("name")
     public String name;
-    @SerializedName("p")
-    public String postcode;
     @SerializedName("lat")
     double latitude;
     @SerializedName("lon")
@@ -19,7 +17,7 @@ public class Pub {
         return new Uri.Builder()
                 .scheme("geo")
                 .authority(String.format("%f,%f", latitude, longitude))
-                .appendQueryParameter("q", String.format("%s, %s", name, postcode))
+                .appendQueryParameter("q", name)
                 .build();
     }
 }
