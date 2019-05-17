@@ -9,4 +9,5 @@
     <string name="racedays">Racedays</string>
     <string name="get_directions">Get Directions</string>
     <string name="title_activity_pub_list">Pub List</string>
+    <string name="map_url" translatable="false">https://goo.gl/maps/zgzRY8qyRrs</string>
 </resources>

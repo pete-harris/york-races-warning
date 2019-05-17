@@ -1,6 +1,7 @@
 package uk.me.peteharris.pintinyork.base
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -26,18 +27,22 @@ class MainActivity : AppCompatActivity() {
         val randomIndex = Random().nextInt(pubs!!.size)
 
         val current = dataHelper.isItBad(badTimes!!)
-        if (null != current) {
-            randomPub = null
-            shouldIGoIn.setImageResource(R.drawable.raceday)
-            shouldIGoInText.text = getString(R.string.raceday, current.label)
-        } else if (dataHelper.isWeekend) {
-            randomPub = null
-            shouldIGoIn.setImageResource(R.drawable.weekend)
-            shouldIGoInText.text = getString(R.string.weekend)
-        } else {
-            randomPub = pubs[randomIndex]
-            shouldIGoIn.setImageResource(R.drawable.pint)
-            shouldIGoInText.text = getString(R.string.haveapint, randomPub!!.name)
+        when {
+            null != current -> {
+                randomPub = null
+                shouldIGoIn.setImageResource(R.drawable.raceday)
+                shouldIGoInText.text = getString(R.string.raceday, current.label)
+            }
+            dataHelper.isWeekend -> {
+                randomPub = null
+                shouldIGoIn.setImageResource(R.drawable.weekend)
+                shouldIGoInText.text = getString(R.string.weekend)
+            }
+            else -> {
+                randomPub = pubs[randomIndex]
+                shouldIGoIn.setImageResource(R.drawable.pint)
+                shouldIGoInText.text = getString(R.string.haveapint, randomPub!!.name)
+            }
         }
         invalidateOptionsMenu()
     }
@@ -52,24 +57,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val i = item.itemId
-        when (i) {
+        return when (item.itemId) {
             R.id.action_raceday -> {
                 val intent = Intent(this, RaceDaysActivity::class.java)
                 startActivity(intent)
-                return true
+                true
             }
             R.id.action_publist -> {
-                val intent = Intent(this, PubListActivity::class.java)
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.map_url)))
                 startActivity(intent)
-                return true
+                true
             }
             R.id.action_directions -> {
-                val intent = Intent(Intent.ACTION_VIEW, randomPub!!.addressUri)
-                startActivity(intent)
-                return true
+                randomPub?.let {
+                    val intent = Intent(Intent.ACTION_VIEW, it.addressUri)
+                    startActivity(intent)
+                    true
+                } ?: true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

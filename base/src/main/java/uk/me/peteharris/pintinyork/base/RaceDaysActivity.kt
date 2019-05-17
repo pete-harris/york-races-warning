@@ -47,7 +47,7 @@ class RaceDaysActivity : AppCompatActivity() {
 
     // Provide a suitable constructor (depends on the kind of dataset)
         (private val mBadTimes: ArrayList<BadTime>) : RecyclerView.Adapter<ViewHolder>() {
-        val df: java.text.DateFormat = DateFormat.getDateFormat(this@RaceDaysActivity)
+        private val df: java.text.DateFormat = DateFormat.getDateFormat(this@RaceDaysActivity)
 
         // Create new views (invoked by the layout manager)
         override fun onCreateViewHolder(
