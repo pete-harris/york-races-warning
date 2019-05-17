@@ -29,7 +29,7 @@ class RaceDaysActivity : AppCompatActivity() {
         // use a linear layout manager
         recycler.layoutManager = LinearLayoutManager(this)
 
-        val badTimes = DataHelper.loadData(this)
+        val badTimes = DataHelper().loadData(this)
 
         recycler.adapter = BadTimeAdapter(badTimes)
     }

@@ -24,11 +24,11 @@ class PubListActivity : AppCompatActivity() {
         recycler.setHasFixedSize(true)
         recycler.layoutManager = LinearLayoutManager(this)
 
-        val pubs = DataHelper.loadPubList(this)
+        val dataHelper = DataHelper()
+        val pubs = dataHelper.loadPubList(this)
 
         recycler.adapter = PubAdapter(pubs)
     }
-
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         internal var text1: TextView = v.findViewById(android.R.id.text1)

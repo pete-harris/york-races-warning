@@ -20,7 +20,7 @@ import uk.me.peteharris.pintinyork.base.model.Pub;
 
 public class DataHelper {
 
-    public static ArrayList<BadTime> loadData(Context context) {
+    public ArrayList<BadTime> loadData(Context context) {
         try {
             Reader isr = new BufferedReader(new InputStreamReader(context.getAssets().open("badTimes.json")));
             Gson gson = new GsonBuilder()
@@ -37,7 +37,7 @@ public class DataHelper {
 
     }
     
-    static ArrayList<Pub> loadPubList(Context context) {
+    public ArrayList<Pub> loadPubList(Context context) {
         try {
             Reader isr = new BufferedReader(new InputStreamReader(context.getAssets().open("publist.json")));
             Gson gson = new GsonBuilder()
@@ -52,8 +52,7 @@ public class DataHelper {
 
     }
 
-
-    public static BadTime isItBad(ArrayList<BadTime> badTimes) {
+    public BadTime isItBad(ArrayList<BadTime> badTimes) {
         Date now = new Date();
         for(BadTime bt: badTimes){
             if(bt.isItNow(now)){
@@ -63,7 +62,7 @@ public class DataHelper {
         return null;
     }
 
-    public static boolean isWeekend() {
+    public boolean isWeekend() {
         Calendar now = Calendar.getInstance();
         return now.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY
                 || now.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY;

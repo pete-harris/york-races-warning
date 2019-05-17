@@ -20,16 +20,17 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val badTimes = DataHelper.loadData(this)
-        val pubs = DataHelper.loadPubList(this)
+        val dataHelper = DataHelper()
+        val badTimes = dataHelper.loadData(this)
+        val pubs = dataHelper.loadPubList(this)
         val randomIndex = Random().nextInt(pubs!!.size)
 
-        val current = DataHelper.isItBad(badTimes!!)
+        val current = dataHelper.isItBad(badTimes!!)
         if (null != current) {
             randomPub = null
             shouldIGoIn.setImageResource(R.drawable.raceday)
             shouldIGoInText.text = getString(R.string.raceday, current.label)
-        } else if (DataHelper.isWeekend()) {
+        } else if (dataHelper.isWeekend) {
             randomPub = null
             shouldIGoIn.setImageResource(R.drawable.weekend)
             shouldIGoInText.text = getString(R.string.weekend)
