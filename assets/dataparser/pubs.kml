@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <Document>
+    <name>Pubs</name>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name><![CDATA[Brigantes Bar & Brasserie]]></name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.09005980000006,53.9566203,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>York Tap</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.09263169999997,53.9583638,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Blue Bell</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.07917099999997,53.958711,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pavement Vaults</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.0801993,53.9582066,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Artful Dodger</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.08760689999997,53.9573217,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>BrewDog York</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.0904352,53.9563645,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Angel On The Green</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.08431930000006,53.9521503,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Maltings</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.0880138,53.9592897,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Swan</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.08389030000001,53.9526204,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pivní York</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.08081249999998,53.9597379,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Slip Inn</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.08201600000007,53.952601,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[The Rook & Gaskill]]></name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.07014389999995,53.9549093,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Hop York</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.07883990000005,53.9586947,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>The Fox</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.10637870000005,53.9553518,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>House Of Trembling Madness, Lendal</name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.08559760000003,53.9603349,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Eagle & Child]]></name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.08460769999999,53.9624374,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Brew York Craft Brewery & Tap Room]]></name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.07636239999999,53.9576795,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Waggon & Horses]]></name>
+      <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          -1.06868029999998,53.9547133,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</xml>
