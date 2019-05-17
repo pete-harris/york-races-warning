@@ -1,0 +1,83 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="uk.me.peteharris.pintinyork">
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <meta-data
+                android:name="default-url"
+                android:value="https://isitaraceday.peteharris.me.uk/" />
+            <meta-data
+                android:name="asset_statements"
+                android:resource="@string/asset_statements" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:order="1"
+                android:autoVerify="true"
+                tools:targetApi="m">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="isitaraceday.peteharris.me.uk"
+                    android:pathPattern="/.*" />
+                <data
+                    android:scheme="https"
+                    android:host="isitaraceday.peteharris.me.uk"
+                    android:pathPattern="/.*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".RaceDaysActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/title_activity_race_days">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <receiver
+            android:name="uk.me.peteharris.pintinyork.RaceDayNotificationReceiver$OnBootReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="uk.me.peteharris.pintinyork.RaceDayNotificationReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="uk.me.peteharris.pintinyork.action.RACEDAY_ALERT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="uk.me.peteharris.pintinyork.GoOutWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/go_out_widget_info" />
+
+        </receiver>
+
+    </application>
+</manifest>
