@@ -29,8 +29,9 @@ class RaceDaysActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
 
         val badTimes = DataHelper().loadData(this)
-
-        recycler.adapter = BadTimeAdapter(badTimes)
+        if(badTimes != null) {
+            recycler.adapter = BadTimeAdapter(badTimes)
+        }
     }
 
     internal class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
