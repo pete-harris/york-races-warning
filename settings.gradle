@@ -1,1 +1,1 @@
-include ':app', ':base', ':instantapp', ':alertnotification'
+include ':app'
