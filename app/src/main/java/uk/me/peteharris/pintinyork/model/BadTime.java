@@ -7,7 +7,6 @@ import java.text.DateFormat;
 import java.util.Date;
 
 public class BadTime implements Parcelable {
-    private final static int TYPE_RACEDAY = 1;
 
     public String label;
     public Date start;
@@ -39,8 +38,7 @@ public class BadTime implements Parcelable {
         dest.writeString(this.type);
     }
 
-    public BadTime() {
-    }
+    public BadTime(){}
 
     private BadTime(Parcel in) {
         this.label = in.readString();
