@@ -9,6 +9,6 @@ public class YorkPubApp extends Application {
         super.onCreate();
 
         // schedule next alarm
-        new RaceDayNotificationReceiver.Helper(this).scheduleAlarm();
+        new RaceDayNotificationReceiver.AlarmHelper(this).scheduleAlarm();
     }
 }

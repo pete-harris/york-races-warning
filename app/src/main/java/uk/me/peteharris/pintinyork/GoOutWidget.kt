@@ -16,9 +16,6 @@ import java.util.*
 class GoOutWidget : AppWidgetProvider() {
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
-
-        // There may be multiple widgets active, so update all of them
-        val N = appWidgetIds.size
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }

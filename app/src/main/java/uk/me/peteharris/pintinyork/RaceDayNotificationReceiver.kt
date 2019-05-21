@@ -7,15 +7,18 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.NotificationCompat
 import android.util.Log
+import android.util.TimeUtils
 import uk.me.peteharris.pintinyork.model.BadTime
+import java.time.Period
 
-import java.util.ArrayList
 import java.util.Calendar
 import java.util.Date
 
@@ -36,7 +39,7 @@ class RaceDayNotificationReceiver : BroadcastReceiver() {
                 )
             }
             // schedule next week's alarm
-            Helper(context).scheduleAlarm()
+            AlarmHelper(context).scheduleAlarm()
         }
     }
 
@@ -48,23 +51,50 @@ class RaceDayNotificationReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             if (Intent.ACTION_BOOT_COMPLETED == intent.action) {
                 Log.d("RaceDayNotification", "Boot detected, scheduling alarm")
-                Helper(context).scheduleAlarm()
+                AlarmHelper(context).scheduleAlarm()
             }
         }
     }
 
-    internal class Helper(private val mContext: Context) {
-        private val mAlarmManager: AlarmManager = mContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+    internal class AlarmHelper(private val context: Context) {
+        private val alarmManager: AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         init {
             if (Build.VERSION.SDK_INT >= 26) {
-                createNotificationChannel(mContext)
+                createNotificationChannel(context)
             }
         }
 
         fun scheduleAlarm() {
+            val nextBadTime = getNextBadTime()
+            nextBadTime?.let {
+                scheduleAlarmFor(nextBadTime)
+            } ?: disableAlarms()
+        }
+
+        private fun disableAlarms() {
+            val receiver = ComponentName(context, OnBootReceiver::class.java)
+            context.packageManager.setComponentEnabledSetting(
+                receiver,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP
+            )
+            Log.d(
+                "RaceDayNotification",
+                "No alarms set"
+            )
+        }
+
+        private fun getNextBadTime(): BadTime? {
+            if (BuildConfig.DEBUG) {
+                val oneMinutesTime = Calendar.getInstance().apply { this.add(Calendar.MINUTE, 1) }.time
+                return BadTime().apply {
+                    label = "Test"
+                    start = oneMinutesTime
+                }
+            }
             val dataHelper = DataHelper()
-            val badTimes = dataHelper.loadData(mContext)
+            val badTimes = dataHelper.loadData(context)
 
             var nextBadTime: BadTime? = null
 
@@ -72,27 +102,28 @@ class RaceDayNotificationReceiver : BroadcastReceiver() {
             for (b in badTimes!!) {
                 if (b.start.before(now)) continue
 
-                if (null == nextBadTime || nextBadTime.start.after(b.start)) {
+                if (nextBadTime == null || nextBadTime.start.after(b.start)) {
                     nextBadTime = b
                 }
             }
-            if (null == nextBadTime) return
+            return nextBadTime
+        }
 
-            val intent = Intent(mContext, RaceDayNotificationReceiver::class.java)
+        private fun scheduleAlarmFor(badTime: BadTime) {
+            val intent = Intent(context, RaceDayNotificationReceiver::class.java)
             intent.action = ACTION_RACEDAY
 
             val hackBundle = Bundle()
-            hackBundle.putParcelable(EXTRA_BADTIME, nextBadTime)
+            hackBundle.putParcelable(EXTRA_BADTIME, badTime)
             intent.putExtra(EXTRA_BADTIME_HACK, hackBundle)
-
             intent.putExtra(EXTRA_BADTIME, hackBundle)
-            val alarmIntent = PendingIntent.getBroadcast(mContext, 0, intent, 0)
+            val alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
 
             // cancel any existing alarm
-            mAlarmManager.cancel(alarmIntent)
+            alarmManager.cancel(alarmIntent)
 
             val calendar = Calendar.getInstance()
-            calendar.timeInMillis = nextBadTime.start.time
+            calendar.timeInMillis = badTime.start.time
             calendar.set(Calendar.HOUR_OF_DAY, BuildConfig.ALERT_HOUR)
             calendar.set(Calendar.MINUTE, BuildConfig.ALERT_MINUTE)
             calendar.set(Calendar.SECOND, 0)
@@ -100,22 +131,30 @@ class RaceDayNotificationReceiver : BroadcastReceiver() {
 
             Log.d(
                 "RaceDayNotification",
-                String.format("alarm scheduled for %s for %s", calendar.time.toString(), nextBadTime.start.toString())
+                String.format("alarm scheduled for %s for %s", calendar.time.toString(), badTime.start.toString())
             )
 
-            mAlarmManager.set(
+            alarmManager.set(
                 AlarmManager.RTC_WAKEUP,
                 calendar.timeInMillis,
                 alarmIntent
             )
+
+            val receiver = ComponentName(context, OnBootReceiver::class.java)
+            context.packageManager.setComponentEnabledSetting(
+                receiver,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP
+            )
+
         }
     }
 
     companion object {
-        private val NOTIFICATION_CHANNEL_RACEDAY_ALERT = "racedayAlert"
-        private val ACTION_RACEDAY = "uk.me.peteharris.pintinyork.action.NOTIFICATION_CHANNEL_RACEDAY_ALERT"
-        private val EXTRA_BADTIME = "uk.me.peteharris.pintinyork.EXTRA_BAD_TIME"
-        private val EXTRA_BADTIME_HACK = "uk.me.peteharris.pintinyork.EXTRA_HACK"
+        private const val NOTIFICATION_CHANNEL_RACEDAY_ALERT = "racedayAlert"
+        private const val ACTION_RACEDAY = "uk.me.peteharris.pintinyork.action.NOTIFICATION_CHANNEL_RACEDAY_ALERT"
+        private const val EXTRA_BADTIME = "uk.me.peteharris.pintinyork.EXTRA_BAD_TIME"
+        private const val EXTRA_BADTIME_HACK = "uk.me.peteharris.pintinyork.EXTRA_HACK"
 
         private fun showNotification(context: Context, race: BadTime) {
             val intent = Intent(context, MainActivity::class.java)
