@@ -11,11 +11,11 @@ android {
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.compileSdk
 
-        buildConfigField 'int', 'ALERT_HOUR', '19'
-        buildConfigField 'int', 'ALERT_MINUTE', '45'
+        buildConfigField 'int', 'ALERT_HOUR', '8'
+        buildConfigField 'int', 'ALERT_MINUTE', '0'
 
-        versionCode 12
-        versionName "1.2.0"
+        versionCode 13
+        versionName "1.2.1"
     }
     androidExtensions {
         experimental = true
