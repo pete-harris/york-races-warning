@@ -14,8 +14,8 @@ android {
         buildConfigField 'int', 'ALERT_HOUR', '8'
         buildConfigField 'int', 'ALERT_MINUTE', '0'
 
-        versionCode 12
-        versionName "1.2.0"
+        versionCode 13
+        versionName "1.2.1"
     }
     androidExtensions {
         experimental = true
