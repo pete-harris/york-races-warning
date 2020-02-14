@@ -8,7 +8,7 @@
         android:id="@+id/action_raceday"
         />
     <item
-        android:title="Pub List"
+        android:title="@string/pub_list"
         app:showAsAction="never"
         android:id="@+id/action_publist"
         />

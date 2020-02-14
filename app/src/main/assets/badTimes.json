@@ -1,92 +1,92 @@
 [
   {
     "label": "Dante Festival",
-    "start": "2019-05-15",
+    "start": "2020-05-13",
     "type": "RACES"
   },
   {
     "label": "Dante Festival",
-    "start": "2019-05-16",
+    "start": "2020-05-14",
     "type": "RACES"
   },
   {
     "label": "Dante Festival",
-    "start": "2019-05-17",
+    "start": "2020-05-15",
     "type": "RACES"
   },
   {
     "label": "First Saturday",
-    "start": "2019-05-25",
+    "start": "2020-05-30",
     "type": "RACES"
   },
   {
     "label": "June Meeting",
-    "start": "2019-06-14",
+    "start": "2020-06-12",
     "type": "RACES"
   },
   {
     "label": "June Meeting",
-    "start": "2019-06-15",
+    "start": "2020-06-13",
     "type": "RACES"
   },
   {
     "label": "Summer Music Saturday",
-    "start": "2019-06-29",
+    "start": "2020-06-27",
     "type": "RACES"
   },
   {
-    "label": "John Smith's Meeting",
-    "start": "2019-07-12",
+    "label": "William Hill Summer Stakes",
+    "start": "2020-07-10",
     "type": "RACES"
   },
   {
-    "label": "John Smith's Meeting",
-    "start": "2019-07-13",
-    "type": "RACES"
-  },
-  {
-    "label": "Music Showcase Weekend",
-    "start": "2019-07-26",
+    "label": "John Smith's Cup",
+    "start": "2020-07-11",
     "type": "RACES"
   },
   {
     "label": "Music Showcase Weekend",
-    "start": "2019-07-27",
+    "start": "2020-07-24",
+    "type": "RACES"
+  },
+  {
+    "label": "Music Showcase Weekend",
+    "start": "2020-07-25",
     "type": "RACES"
   },
   {
     "label": "Ebor Festival",
-    "start": "2019-08-21",
+    "start": "2020-08-19",
     "type": "RACES"
   },
   {
     "label": "Ebor Festival",
-    "start": "2019-08-22",
+    "start": "2020-08-20",
     "type": "RACES"
   },
   {
     "label": "Ebor Festival",
-    "start": "2019-08-23",
+    "start": "2020-08-21",
     "type": "RACES"
   },
   {
     "label": "Ebor Festival",
-    "start": "2019-08-24",
+    "start": "2020-08-22",
     "type": "RACES"
   },
   {
-    "label": "September Saturday",
-    "start": "2019-09-08",
+    "label": "Family Raceday",
+    "start": "2020-09-06",
     "type": "RACES"
   },
   {
-    "label": "October Finale",
-    "start": "2019-10-11",
+    "label": "Countryside day",
+    "start": "2020-10-09",
     "type": "RACES"
   },
   {
-    "label": "October Finale",
-    "start": "2019-10-12",
+    "label": "Coral Sprint Trophy",
+    "start": "2020-10-10",
     "type": "RACES"
   }
 ]

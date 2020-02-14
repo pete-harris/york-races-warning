@@ -13,14 +13,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.NotificationCompat
 import android.util.Log
-import android.util.TimeUtils
+import androidx.core.app.NotificationCompat
 import uk.me.peteharris.pintinyork.model.BadTime
-import java.time.Period
-
-import java.util.Calendar
-import java.util.Date
+import java.util.*
 
 class RaceDayNotificationReceiver : BroadcastReceiver() {
 
@@ -175,7 +171,7 @@ class RaceDayNotificationReceiver : BroadcastReceiver() {
                 .setStyle(NotificationCompat.BigTextStyle().bigText(text))
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                builder.setVisibility(Notification.VISIBILITY_PUBLIC)
+                builder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 builder.setCategory(Notification.CATEGORY_REMINDER)
